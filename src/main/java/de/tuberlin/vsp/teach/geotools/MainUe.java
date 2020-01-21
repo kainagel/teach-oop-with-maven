@@ -25,37 +25,32 @@ class MainUe {
 
                         SimpleFeature result = reader.next();
                         features.add(result);
-//                        System.out.println(result.toString());
-//                        List<Object> attributes = result.getAttributes();
-//                        for (Object o : result.getAttributes()) {
-//                                System.out.println(o.toString());
-//                        }
                 }
 
                 reader.close();
 
                 System.out.println(features.size());
 
+
                 List<String> pointsString = new ArrayList<>();
                 pointsString.add("x coord, y coord");
-//                pointsString.add(xNew + "," + yNew);
+
+
+                for (SimpleFeature feature : features) {
+                        double minX = feature.getBounds().getMinX();
+                        double maxX = feature.getBounds().getMaxX();
+                        double minY = feature.getBounds().getMinY();
+                        double maxY = feature.getBounds().getMaxY();
+
+                        for (int i = 0; i < 5; i++) {
+                                double xNew = minX + (maxX-minX)*Math.random();
+                                double yNew = minY + (maxY-minY)*Math.random();
+                                pointsString.add(xNew + "," + yNew);
+                        }
+
+                }
+
 
                 CSVTools.printCSV(pointsString, "data/coords.csv");
         }
 }
-
-//                Point point = new GeometryFactory().createPoint(new Coordinate(xNew, yNew));
-
-
-
-//
-//
-//                for (SimpleFeature feature : features) {
-//                        BoundingBox bounds = feature.getBounds();
-//                        Geometry polygon = (Geometry) feature.getAttributes().get(0);
-//                        DirectPosition directPosition = new DirectPosition1D();
-//                        if (polygon.contains(directPosition))
-//
-//                }
-
-
