@@ -6,14 +6,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class CSVTools {
+class CSVTools {
 
 
-    public static void printCSV(List<String> list, String outputFileName) {
+    static void printCSV(List<String> list, String outputFileName) {
         File outputFile = new File(outputFileName); // Insert Path to Output File Here!
 
         try (
-                BufferedWriter out = new BufferedWriter(new FileWriter(outputFile));
+                BufferedWriter out = new BufferedWriter(new FileWriter(outputFile))
         ) {
             for (String line : list){
                 out.write(line);
