@@ -2,25 +2,15 @@ package de.tuberlin.vsp.teach.sandbox;
 
 class Main{
 
-	static class Person {
-		void aMethod() {
-			System.out.println("dynamic person method");
-		}
-	}
-
-	static class Child extends Person {
-		@Override void aMethod() {
-			System.out.println("dynamic child method");
-		}
-	}
+	int count;
 
 	static void aMethod( Person person ) {
 		System.out.println("static person method");
 	}
-	static void aMethod( Child child ) {
+	static boolean aMethod( Child child ) {
 		System.out.println("static child method");
+		return false;
 	}
-
 	public static void main( String[] args ){
 
 		Person person = new Child() ;
