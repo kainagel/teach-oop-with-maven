@@ -16,7 +16,7 @@
 <!--		<jme3_v>3.2.0-stable</jme3_v>-->
 		<jme3_v>3.3.0-beta1</jme3_v>
 		<matsim.version>12.0-SNAPSHOT</matsim.version>
-		<geotools.version>21.1</geotools.version>
+		<geotools.version>22.2</geotools.version>
 <!--		<geotools.version>22.3</geotools.version>-->
 		<javafx.version>17.0.1</javafx.version>
 	</properties>
@@ -38,6 +38,15 @@
 			<id>bintray-jmonkeyengine-org.jmonkeyengine</id>
 			<name>bintray</name>
 			<url>https://dl.bintray.com/jmonkeyengine/org.jmonkeyengine</url>
+		</repository>
+<!--		<repository>-->
+<!--&lt;!&ndash;			old versions of processing&ndash;&gt;-->
+<!--			<id>clojars.org</id>-->
+<!--			<url>http://clojars.org/repo</url>-->
+<!--		</repository>-->
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
 		</repository>
 	</repositories>
 
@@ -67,11 +76,20 @@
 			<artifactId>gt-epsg-hsql</artifactId>
 			<version>${geotools.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.github.micycle1</groupId>
+			<artifactId>processing-core-4</artifactId>
+			<version>4.3.3</version>
+		</dependency>
 <!--		<dependency>-->
 <!--			<groupId>org.processing</groupId>-->
 <!--			<artifactId>core</artifactId>-->
-<!--			<version>3.0.1</version>-->
+<!--			<version>3.3.7</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.processing</groupId>-->
+<!--			<artifactId>java-mode</artifactId>-->
+<!--			<version>3.3.7</version>-->
 <!--		</dependency>-->
 <!--		<dependency>-->
 <!--			<groupId>org.jogamp.gluegen</groupId>-->
@@ -150,8 +168,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>22</source>
+					<target>22</target>
 					<showWarnings>false</showWarnings>
 					<showDeprecation>false</showDeprecation>
 					<encoding>UTF-8</encoding>
